@@ -19,6 +19,6 @@ Route::get('/', function () {
 });
 
 Route::resource('students', StudentController::class)->only([
-    'index', 'show'
+    'index', 'create'
 ]);
 
