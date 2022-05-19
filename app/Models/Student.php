@@ -11,6 +11,11 @@ class Student extends Model
 {
     use HasFactory;
 
+    public function courses()
+    {
+        return $this->belongsToMany(Course::class);
+    }
+
     protected function dob(): Attribute
     {
         return Attribute::make(
