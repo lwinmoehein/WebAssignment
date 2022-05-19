@@ -5,18 +5,34 @@
 
 @section('content')
 <div>
-    <section class="input-form">
+    <section class="register-form">
 
        <form action="{{route('students.store')}}" method="POST" enctype="multipart/form-data">
         @csrf
 
             <input type="text" name="name" placeholder="Student Name"/>
+            @if($errors->has('name'))
+                <span class="form-error">{{ $errors->first('name');}}</span>
+            @endif
             <input type="email" name="email" placeholder="Student Email"/>
+            @if($errors->has('email'))
+                <span class="form-error">{{ $errors->first('email');}}</span>
+            @endif
             <input type="text" name="nrc" placeholder="Student NRC"/>
+            @if($errors->has('nrc'))
+                <span class="form-error">{{ $errors->first('nrc');}}</span>
+            @endif
             <input type="date" name="dob" placeholder="Student Birthday"/>
+            @if($errors->has('dob'))
+                <span class="form-error">{{ $errors->first('dob');}}</span>
+            @endif
 
 
-            <p>Select Courses:</p>
+            <p>Select Courses:
+                @if($errors->has('courses'))
+                    <span class="form-error">{{ $errors->first('courses');}}</span>
+                @endif
+            </p>
 
             <div class="course-wrapper">
                 @foreach ($courses as $course)

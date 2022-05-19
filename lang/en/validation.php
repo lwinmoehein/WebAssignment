@@ -151,6 +151,12 @@ return [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
+        'courses' => [
+            'required' => 'Please select at least one course.'
+        ],
+        'name' => [
+            'string' => 'Please enter valid name.',
+        ],
     ],
 
     /*

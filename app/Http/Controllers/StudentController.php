@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Course;
 use App\Models\Student;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreStudent;
 
 class StudentController extends Controller
 {
@@ -40,7 +41,7 @@ class StudentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreStudent $request)
     {
         //
         dd($request);
