@@ -1,6 +1,7 @@
 
 
 @extends('layouts.master')
+@section('title', 'Student Register')
 
 @section('content')
 <div>

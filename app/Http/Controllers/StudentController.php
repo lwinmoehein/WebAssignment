@@ -23,8 +23,8 @@ class StudentController extends Controller
 
     /**
      * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
+     *wi
+     * @return \Illuminate\Http\Responses
      */
     public function create()
     {

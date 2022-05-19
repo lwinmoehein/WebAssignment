@@ -7,8 +7,9 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="shortcut icon" type="image/jpg" href="{{asset('favicon.png')}}"/>
 
-</head>
 
+</head>
+{{--
 <body class="main_layout">
     <div class="side_bar">
         @include('layouts.side-bar')
@@ -16,6 +17,18 @@
     <div class="content">
         @yield('content')
     </div>
+</body> --}}
+<body>
+    <div class="wrapper">
+        <header>{{config('app.name')}} : @yield('title')</header>
+        <aside>
+            @include('layouts.side-bar')
+        </aside>
+        <div class="content">
+         @yield('content')
+        </div>
+
+      </div>
 </body>
 
 </html>

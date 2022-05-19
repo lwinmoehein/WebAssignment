@@ -1,7 +1,4 @@
 <nav>
-    <div class="logo">
-        {{config('app.name')}}
-    </div>
 
     <ul class="side-menu">
         <li class="{{Route::is('students.index')|| Route::is('index')?'link-active':''}}">
