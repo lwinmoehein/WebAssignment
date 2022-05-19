@@ -9,15 +9,7 @@
 
 
 </head>
-{{--
-<body class="main_layout">
-    <div class="side_bar">
-        @include('layouts.side-bar')
-    </div>
-    <div class="content">
-        @yield('content')
-    </div>
-</body> --}}
+
 <body>
     <div class="wrapper">
         <header>{{config('app.name')}} : @yield('title')</header>
