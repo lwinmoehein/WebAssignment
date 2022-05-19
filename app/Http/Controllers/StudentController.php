@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Course;
 use App\Models\Student;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,9 @@ class StudentController extends Controller
     public function index()
     {
         //
-        return Student::all()->toJson();
+        $students = Student::all();
+
+        return view('student.index',compact('students'));
     }
 
     /**
@@ -26,6 +29,9 @@ class StudentController extends Controller
     public function create()
     {
         //
+        $courses = Course::all();
+
+        return view('student.register',compact('courses'));
     }
 
     /**
@@ -37,6 +43,7 @@ class StudentController extends Controller
     public function store(Request $request)
     {
         //
+        dd($request);
     }
 
     /**
