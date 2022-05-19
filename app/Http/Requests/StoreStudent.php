@@ -26,9 +26,9 @@ class StoreStudent extends FormRequest
         return [
             //
             'name'=>'string',
-            'email'=>'email',
+            'email'=>'email|unique:students,email',
             'dob'=>'date',
-            'nrc'=>'string|max:50',
+            'nrc'=>'string|max:50|unique:students,nrc',
             'courses'=>'required|array|min:1'
         ];
     }

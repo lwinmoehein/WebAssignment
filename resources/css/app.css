@@ -3,6 +3,9 @@ header {
     background-color: cornflowerblue;
     padding: 20px;
   }
+  header  h3 {
+      color: white;
+  }
   .content {
     grid-area: content;
     background-color: cornflowerblue;
@@ -70,6 +73,20 @@ header {
 }
 .form-error {
     color: red;
+}
+
+table {
+    border: 1px solid black;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+td{
+    padding: 10px;
+    border-top: 1px solid black;
+    border-right: 1px solid black;
+}
+td:last-child{
+  border-right: none;
 }
 
 

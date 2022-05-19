@@ -6,6 +6,8 @@ use App\Models\Course;
 use App\Models\Student;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreStudent;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redirect;
 
 class StudentController extends Controller
 {
@@ -17,7 +19,7 @@ class StudentController extends Controller
     public function index()
     {
         //
-        $students = Student::all();
+        $students = Student::with('courses')->get();
 
         return view('student.index',compact('students'));
     }
@@ -44,7 +46,31 @@ class StudentController extends Controller
     public function store(StoreStudent $request)
     {
         //
-        dd($request);
+        DB::transaction(function () use($request){
+            $name = $request->name;
+            $email = $request->email;
+            $nrc = $request->nrc;
+            $dob = $request->dob;
+            $courses = $request->courses;
+
+            DB::insert('insert into students (name, email,nrc,dob) values (?,?,?,?)', [$name,$email,$nrc,$dob]);
+
+            $insertedStudent =  DB::table("students")
+                    ->where(DB::raw("email"),$email)
+                    ->where(DB::raw("nrc"),$nrc)
+                    ->get()
+                    ->first();
+
+            if($insertedStudent){
+                foreach($courses as $course){
+                    DB::insert('insert into course_student (course_id,student_id) values (?,?)', [$course,$insertedStudent->id]);
+                }
+            }
+        });
+
+        return redirect()->route('students.index');
+
+
     }
 
     /**

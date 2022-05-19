@@ -12,7 +12,7 @@
 
 <body>
     <div class="wrapper">
-        <header>{{config('app.name')}} : @yield('title')</header>
+        <header><h3>{{config('app.name')}} : @yield('title')</h3></header>
         <aside>
             @include('layouts.side-bar')
         </aside>
