@@ -80,6 +80,9 @@ table {
     border-collapse: collapse;
     border-spacing: 0;
 }
+th {
+    padding: 10px;
+}
 td{
     padding: 10px;
     border-top: 1px solid black;
@@ -112,5 +115,10 @@ td:last-child{
          width: 100%;
          justify-content: flex-end;
      }
+  }
+
+  .no-data-wrapper {
+      padding: 30px;
+      text-align: center;
   }
 

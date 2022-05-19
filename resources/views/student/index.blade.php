@@ -26,7 +26,16 @@
                         @endforeach
                     </td>
                 </tr>
+
             @endforeach
+            @if($students->isEmpty())
+            <tr>
+               <td colspan="5" class="no-data-wrapper">
+                No Students Found.
+               </td>
+            </tr>
+        @endif
         </table>
+
 
 @stop

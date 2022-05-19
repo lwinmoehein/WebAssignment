@@ -19,7 +19,7 @@ class StudentController extends Controller
     public function index()
     {
         //
-        $students = Student::with('courses')->get();
+        $students = Student::with('courses')->orderBy('created_at','desc')->get();
 
         return view('student.index',compact('students'));
     }
@@ -52,8 +52,9 @@ class StudentController extends Controller
             $nrc = $request->nrc;
             $dob = $request->dob;
             $courses = $request->courses;
+            $createdAt = now();
 
-            DB::insert('insert into students (name, email,nrc,dob) values (?,?,?,?)', [$name,$email,$nrc,$dob]);
+            DB::insert('insert into students (name, email,nrc,dob,created_at) values (?,?,?,?,?)', [$name,$email,$nrc,$dob,$createdAt]);
 
             $insertedStudent =  DB::table("students")
                     ->where(DB::raw("email"),$email)
